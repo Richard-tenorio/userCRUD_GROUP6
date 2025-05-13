@@ -1,0 +1,5 @@
+<LinearLayout ... orientation="vertical">
+    <EditText android:id="@+id/username" ... hint="Username"/>
+    <EditText android:id="@+id/password" ... hint="Password" android:inputType="textPassword"/>
+    <Button android:id="@+id/loginBtn" ... text="Login"/>
+</LinearLayout>
