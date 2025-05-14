@@ -43,25 +43,25 @@
 
         <Button
             android:id="@+id/btnCreate"
-            android:text="Create"
+            android:text="Create User"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
         <Button
             android:id="@+id/btnRead"
-            android:text="Read"
+            android:text="Read Users"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
         <Button
             android:id="@+id/btnUpdate"
-            android:text="Update"
+            android:text="Update User"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
         <Button
             android:id="@+id/btnDelete"
-            android:text="Delete"
+            android:text="Delete User"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
     </LinearLayout>
