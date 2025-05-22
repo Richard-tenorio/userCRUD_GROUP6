@@ -38,14 +38,20 @@ public class mainActivity extends AppCompatActivity {
     }
 
     private void createUser() {
-        String name = editTextName.getText().toString();
-        String email = editTextEmail.getText().toString();
-        String password = editTextPassword.getText().toString();
+        String name = editTextName.getText().toString().trim();
+        String email = editTextEmail.getText().toString().trim();
+        String password = editTextPassword.getText().toString().trim();
+
+        if (name.isEmpty() || email.isEmpty() || password.isEmpty()) {
+            showToast("Please fill in all fields");
+            return;
+        }
 
         StringRequest request = new StringRequest(Request.Method.POST, baseUrl + "create.php",
                 response -> showToast(response),
                 error -> showToast("Error: " + error.getMessage())
         ) {
+            @Override
             protected Map<String, String> getParams() {
                 Map<String, String> params = new HashMap<>();
                 params.put("name", name);
@@ -65,15 +71,21 @@ public class mainActivity extends AppCompatActivity {
     }
 
     private void updateUser() {
-        String id = editTextId.getText().toString();
-        String name = editTextName.getText().toString();
-        String email = editTextEmail.getText().toString();
-        String password = editTextPassword.getText().toString();
+        String id = editTextId.getText().toString().trim();
+        String name = editTextName.getText().toString().trim();
+        String email = editTextEmail.getText().toString().trim();
+        String password = editTextPassword.getText().toString().trim();
+
+        if (id.isEmpty() || name.isEmpty() || email.isEmpty() || password.isEmpty()) {
+            showToast("Please fill in all fields");
+            return;
+        }
 
         StringRequest request = new StringRequest(Request.Method.POST, baseUrl + "update.php",
                 response -> showToast(response),
                 error -> showToast("Error: " + error.getMessage())
         ) {
+            @Override
             protected Map<String, String> getParams() {
                 Map<String, String> params = new HashMap<>();
                 params.put("id", id);
@@ -87,12 +99,18 @@ public class mainActivity extends AppCompatActivity {
     }
 
     private void deleteUser() {
-        String id = editTextId.getText().toString();
+        String id = editTextId.getText().toString().trim();
+
+        if (id.isEmpty()) {
+            showToast("Please enter an ID");
+            return;
+        }
 
         StringRequest request = new StringRequest(Request.Method.POST, baseUrl + "delete.php",
                 response -> showToast(response),
                 error -> showToast("Error: " + error.getMessage())
         ) {
+            @Override
             protected Map<String, String> getParams() {
                 Map<String, String> params = new HashMap<>();
                 params.put("id", id);
